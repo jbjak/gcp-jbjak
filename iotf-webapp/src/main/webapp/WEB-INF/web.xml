@@ -15,4 +15,10 @@
     <welcome-file-list>
         <welcome-file>home.jsp</welcome-file>
     </welcome-file-list>
+<!-- [START config] -->
+    <context-param>
+        <param-name>upload.bucket</param-name>
+        <param-value>${upload.bucket}</param-value>
+    </context-param>    
+<!-- [END config] -->
 </web-app>

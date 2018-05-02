@@ -58,12 +58,10 @@ Let's get your activities updated...
 <form action="/logDayForm.jsp" method="get">
     <div><input type="submit" value="Log Single Day's Activity"/></div>
 </form>
-<form action="/uploadMultiDayForm.jsp" method="get">
+<form action="/logMultiDayForm.jsp" method="get">
     <div><input type="submit" value="Upload Multiple Days"/></div>
 </form>
-<h3>
-Or you can <a href="https://datastudio.google.com/open/11UMD7VWP-IhbxkITlatH4y4tWww3Rprs" target="_blank">analyze your progress.. </a>
-</h3>
+
 <%
         }
 %>
