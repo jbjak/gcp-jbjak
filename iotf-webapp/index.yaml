@@ -1,6 +1,6 @@
 indexes:
-- kind: "Greeting"
-  ancestor: yes
+- kind: "Profile"
+  ancestor: no
   properties:
-  - name: "date"
+  - name: "member_id"
     direction: desc
