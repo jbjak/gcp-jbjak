@@ -20,9 +20,9 @@ import java.io.StringWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class GuestbookServletTest {
+public class CreateProfileServletTest {
 
-  private GuestbookServlet guestbookServlet;
+  private CreateProfileServlet createProfileServlet;
 
   private final LocalServiceTestHelper helper =
       new LocalServiceTestHelper(new LocalUserServiceTestConfig())
@@ -31,9 +31,9 @@ public class GuestbookServletTest {
           .setEnvEmail("test@localhost");
 
   @Before
-  public void setupGuestBookServlet() {
+  public void setupCreateProfileServlet() {
     helper.setUp();
-    guestbookServlet = new GuestbookServlet();
+    createProfileServlet = new CreateProfileServlet();
   }
 
   @After
@@ -50,7 +50,7 @@ public class GuestbookServletTest {
 
     when(response.getWriter()).thenReturn(new PrintWriter(stringWriter));
 
-    guestbookServlet.doGet(request, response);
+    createProfileServlet.doPost(request, response);
 
     User currentUser = UserServiceFactory.getUserService().getCurrentUser();
 
