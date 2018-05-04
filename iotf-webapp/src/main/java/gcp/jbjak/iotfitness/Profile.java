@@ -27,6 +27,7 @@ public class Profile {
   public String birth_year;
   public String height;
   public String weight;
+  public String device_type;
   public Date lastUpdateDate;
 
   /**
@@ -37,7 +38,7 @@ public class Profile {
   /**
    * Takes all important fields
    **/
-  public Profile(String id, String email, String fname, String lname, String year, String h, String w) {
+  public Profile(String id, String email, String fname, String lname, String year, String h, String w, String d) {
 	  this.member_id = id;
 	  this.email_address = email;
 	  this.first_name = fname;
@@ -45,6 +46,7 @@ public class Profile {
 	  this.birth_year = year;
 	  this.height = h;
 	  this.weight = w;
+	  this.device_type = d;
 	  this.lastUpdateDate = new Date();
   }
   
@@ -59,8 +61,149 @@ public class Profile {
 			  "Birth Year: " + this.birth_year + "\n" +
 			  "Height: " + this.height + "\n" +
 			  "Weight: " + this.weight + "\n" +
+			  "IoT Device Type: " + this.device_type + "\n" +
 			  "Last Update: " + this.lastUpdateDate.toString();
 	  return profileString;
   }
+
+/**
+ * @return the id
+ */
+public Long getId() {
+	return id;
+}
+
+/**
+ * @param id the id to set
+ */
+public void setId(Long id) {
+	this.id = id;
+}
+
+/**
+ * @return the member_id
+ */
+public String getMember_id() {
+	return member_id;
+}
+
+/**
+ * @param member_id the member_id to set
+ */
+public void setMember_id(String member_id) {
+	this.member_id = member_id;
+}
+
+/**
+ * @return the email_address
+ */
+public String getEmail_address() {
+	return email_address;
+}
+
+/**
+ * @param email_address the email_address to set
+ */
+public void setEmail_address(String email_address) {
+	this.email_address = email_address;
+}
+
+/**
+ * @return the first_name
+ */
+public String getFirst_name() {
+	return first_name;
+}
+
+/**
+ * @param first_name the first_name to set
+ */
+public void setFirst_name(String first_name) {
+	this.first_name = first_name;
+}
+
+/**
+ * @return the last_name
+ */
+public String getLast_name() {
+	return last_name;
+}
+
+/**
+ * @param last_name the last_name to set
+ */
+public void setLast_name(String last_name) {
+	this.last_name = last_name;
+}
+
+/**
+ * @return the birth_year
+ */
+public String getBirth_year() {
+	return birth_year;
+}
+
+/**
+ * @param birth_year the birth_year to set
+ */
+public void setBirth_year(String birth_year) {
+	this.birth_year = birth_year;
+}
+
+/**
+ * @return the height
+ */
+public String getHeight() {
+	return height;
+}
+
+/**
+ * @param height the height to set
+ */
+public void setHeight(String height) {
+	this.height = height;
+}
+
+/**
+ * @return the weight
+ */
+public String getWeight() {
+	return weight;
+}
+
+/**
+ * @param weight the weight to set
+ */
+public void setWeight(String weight) {
+	this.weight = weight;
+}
+
+/**
+ * @return the device_type
+ */
+public String getDevice_type() {
+	return device_type;
+}
+
+/**
+ * @param device_type the device_type to set
+ */
+public void setDevice_type(String device_type) {
+	this.device_type = device_type;
+}
+
+/**
+ * @return the lastUpdateDate
+ */
+public Date getLastUpdateDate() {
+	return lastUpdateDate;
+}
+
+/**
+ * @param lastUpdateDate the lastUpdateDate to set
+ */
+public void setLastUpdateDate(Date lastUpdateDate) {
+	this.lastUpdateDate = lastUpdateDate;
+}
 
 }
