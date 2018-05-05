@@ -56,7 +56,6 @@ public class LogDayServlet extends HttpServlet {
     		mapper.writeValue(System.out, activity);
     		
     		System.out.println("### Sending activity log entry to the queue: " + activity.toString());
-    		
     	} 
 	}
 

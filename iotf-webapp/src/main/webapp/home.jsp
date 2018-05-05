@@ -48,7 +48,7 @@ Welcome! Please tell us a bit more about yourself...
 	Gender:<h4>
 	<input type="radio" name="gender" value="F" required> Female<br>
 	<input type="radio" name="gender" value="M"> Male</h4>
-	Year of Birth (MM/DD/YY): <input type="text" name="birth_yr" required/>
+	Year of Birth (YYYY): <input type="text" name="birth_yr" required/>
 	Height (ft,in): <input type="text" name="height" required/>
 	Weight (lbs): <input type="text" name="weight" required/>
 	IoT Device Type: <select id=device_type name="device_type" required>
@@ -92,7 +92,7 @@ What would you like to do today?
 	Gender:<h4>
 	<input type="radio" name="gender" value="F" required <%=profile.isSelectedGender("F")%>> Female<br>
 	<input type="radio" name="gender" value="M" <%=profile.isSelectedGender("M")%>> Male</h4>
-	Year of Birth (MM/DD/YY): <input type="text" name="birth_yr" value=<%=profile.birth_year%> required/>
+	Year of Birth (YYYY): <input type="text" name="birth_yr" value=<%=profile.birth_year%> required/>
 	Height (ft,in): <input type="text" name="height" value=<%=profile.height%> required/>
 	Weight (lbs): <input type="text" name="weight" value=<%=profile.weight%> required/>
 	IoT Device Type: <select id=device_type name="device_type" required>
