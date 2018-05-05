@@ -29,6 +29,7 @@ public class CreateProfileServlet extends HttpServlet {
     String fname = req.getParameter("fname");
     String lname = req.getParameter("lname");
     String birth_yr = req.getParameter("birth_yr");
+    String gender = req.getParameter("gender");
     String height = req.getParameter("height");
     String weight = req.getParameter("weight");
     String device_type = req.getParameter("device_type");
@@ -36,10 +37,11 @@ public class CreateProfileServlet extends HttpServlet {
     if (user != null) {
     	profile = ObjectifyService.ofy().load().type(Profile.class).filter("member_id",user.getUserId()).first().now();
     	if (profile == null) {
-    		profile = new Profile(user.getUserId(),user.getEmail(), fname, lname, birth_yr, height, weight, device_type);	
+    		profile = new Profile(user.getUserId(),user.getEmail(), fname, lname, gender, birth_yr, height, weight, device_type);	
     	} else {
     		profile.setFirst_name(fname);
     		profile.setLast_name(lname);
+    		profile.setGender(gender);
     		profile.setBirth_year(birth_yr);
     		profile.setHeight(height);
     		profile.setWeight(weight);

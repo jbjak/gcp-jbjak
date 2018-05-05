@@ -27,6 +27,7 @@ public class Profile {
   public String birth_year;
   public String height;
   public String weight;
+  public String gender;
   public String device_type;
   public Date lastUpdateDate;
 
@@ -38,11 +39,12 @@ public class Profile {
   /**
    * Takes all important fields
    **/
-  public Profile(String id, String email, String fname, String lname, String year, String h, String w, String d) {
+  public Profile(String id, String email, String fname, String lname, String g, String year, String h, String w, String d) {
 	  this.member_id = id;
 	  this.email_address = email;
 	  this.first_name = fname;
 	  this.last_name = lname;
+	  this.gender = g;
 	  this.birth_year = year;
 	  this.height = h;
 	  this.weight = w;
@@ -57,7 +59,8 @@ public class Profile {
 			  "Member ID:" + this.member_id + "\n" +
 			  "Email Address: " + this.email_address + "\n" +
 			  "First Name: " + this.first_name + "\n" +
-			  "Last Name: " + this.id + "\n" +
+			  "Last Name: " + this.last_name + "\n" +
+			  "Gender: " + this.gender + "\n" +
 			  "Birth Year: " + this.birth_year + "\n" +
 			  "Height: " + this.height + "\n" +
 			  "Weight: " + this.weight + "\n" +
@@ -204,6 +207,36 @@ public Date getLastUpdateDate() {
  */
 public void setLastUpdateDate(Date lastUpdateDate) {
 	this.lastUpdateDate = lastUpdateDate;
+}
+
+public String isSelectedGender(String gender_compare) {
+	String selected = new String("");
+	if(this.gender.equals(gender_compare)) {
+		selected = "checked";
+	}
+	return selected;
+}
+
+public String isSelectedDevice(String select_type) {
+	String selected = new String("");
+	if(this.device_type.equals(select_type)) {
+		selected = "selected";
+	}
+	return selected;
+}
+
+/**
+ * @return the gender
+ */
+public String getGender() {
+	return gender;
+}
+
+/**
+ * @param gender the gender to set
+ */
+public void setGender(String gender) {
+	this.gender = gender;
 }
 
 }

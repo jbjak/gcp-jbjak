@@ -21,22 +21,33 @@
 <img src="gym_logo.jpg" style="vertical-align:bottom" style="float:left" width="99" height="99"> IoT Fitness<br>
 </h1>
 <%
-    UserService userService = UserServiceFactory.getUserService();
-    User user = userService.getCurrentUser();
-    if (user != null) {
-        pageContext.setAttribute("user", user);
-        Profile profile = ObjectifyService.ofy().load().type(Profile.class).filter("member_id",user.getUserId()).first().now();
-        if (profile == null)
-        {
+String msg = request.getParameter("message");
+if (msg == null)
+{
+	msg = new String("");
+}
+
+UserService userService = UserServiceFactory.getUserService();
+User user = userService.getCurrentUser();
+if (user != null) {
+	pageContext.setAttribute("user", user);
+    Profile profile = ObjectifyService.ofy().load().type(Profile.class).filter("member_id",user.getUserId()).first().now();
+    if (profile == null)
+    {
 %>
 <h2>
-<p>Welcome! Please tell us a bit more about yourself...
-</h3>
+Welcome! Please tell us a bit more about yourself...
+<br><%=msg%>
+</h2>
 <div>
-<h4>
+<h3>
 <form action="/createProfile" method="post">
+	Email Address (from your login): <input type="text" name="email" value=<%=user.getEmail()%> readonly/>
 	First Name: <input type="text" name="fname" required/>
 	Last Name: <input type="text" name="lname" required/>
+	Gender:<h4>
+	<input type="radio" name="gender" value="F" required> Female<br>
+	<input type="radio" name="gender" value="M"> Male</h4>
 	Year of Birth (MM/DD/YY): <input type="text" name="birth_yr" required/>
 	Height (ft,in): <input type="text" name="height" required/>
 	Weight (lbs): <input type="text" name="weight" required/>
@@ -45,11 +56,11 @@
       <option value="apple">Apple Health</option>
       <option value="fitbit">Fitbit</option>
       <option value="garmin">Garmin</option>
-      <option value="other" selected="selected">Other</option>
+      <option value="other" selected>Other</option>
     </select>
-    <div><input type="submit" value="Create a Profile"/>
+    <input type="submit" value="Create a Profile"/>
 </form>
-</h4>
+</h3>
 </div>
 
 <%
@@ -58,12 +69,13 @@
 
 <h2>
 Thank you for coming back <%=profile.first_name%>!
+<br><%=msg%>
 </h2>
 <div>
 <h3>
 What would you like to do today?
 </h3>
-<form action="/logDayForm.jsp" method="get">
+<form action="/logDay.jsp" method="get">
     <input type="submit" value="Log Single Day's Activity"/>
 </form>
 <form action="/uploadMultiDayForm.jsp" method="get">
@@ -73,38 +85,37 @@ What would you like to do today?
     <input type="submit" value="Analyze Your Progress"/>
 </form>
 <h3>Or you can update your profile details...</h3>
-<%=profile.toString()%>
 <form action="/createProfile" method="post">
+	Email Address (from your login): <input type="text" name="email" value=<%=profile.email_address%> readonly/>
 	First Name: <input type="text" name="fname" value=<%=profile.first_name%> required/>
 	Last Name: <input type="text" name="lname" value=<%=profile.last_name%> required/>
+	Gender:<h4>
+	<input type="radio" name="gender" value="F" required <%=profile.isSelectedGender("F")%>> Female<br>
+	<input type="radio" name="gender" value="M" <%=profile.isSelectedGender("M")%>> Male</h4>
 	Year of Birth (MM/DD/YY): <input type="text" name="birth_yr" value=<%=profile.birth_year%> required/>
 	Height (ft,in): <input type="text" name="height" value=<%=profile.height%> required/>
 	Weight (lbs): <input type="text" name="weight" value=<%=profile.weight%> required/>
-	
-	<script>document.getElementById("device_type").value = "<%=profile.device_type%>"</script>
-	
 	IoT Device Type: <select id=device_type name="device_type" required>
-      <option value="google">Google Fit</option>
-      <option value="apple">Apple Health</option>
-      <option value="fitbit">Fitbit</option>
-      <option value="garmin">Garmin Connect</option>
-      <option value="other">Other</option>
+      <option value="google" <%=profile.isSelectedDevice("google")%>>Google Fit</option>
+      <option value="apple" <%=profile.isSelectedDevice("apple")%>>Apple Health</option>
+      <option value="fitbit" <%=profile.isSelectedDevice("fitbit")%>>Fitbit</option>
+      <option value="garmin" <%=profile.isSelectedDevice("garmin")%>>Garmin Connect</option>
+      <option value="other" <%=profile.isSelectedDevice("other")%>>Other</option>
     </select>
     <input type="submit" value="Update Your Profile"/>
 </form>
-</h3>
 </div>
 <%
         }
 %>
 <h2>
-<p>Don't forget to <a href="<%= userService.createLogoutURL(request.getRequestURI()) %>"><b>Check-Out</b></a> when you are done!</p>
+Don't forget to <a href="<%= userService.createLogoutURL(request.getRequestURI()) %>"><b>Check-Out</b></a> when you are done!
 </h2>
 <%
     } else {
 %>
 <h2>
-<p>Please <a href="<%= userService.createLoginURL(request.getRequestURI()) %>"><b>Check-In</b></a> to get started...</p>
+Please <a href="<%= userService.createLoginURL(request.getRequestURI()) %>"><b>Check-In</b></a> to get started...
 </h2>
 <%
     }
