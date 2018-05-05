@@ -42,31 +42,16 @@
 <img src="gym_logo.jpg" style="vertical-align:bottom" style="float:left" width="99" height="99"> IoT Fitness<br>
 </h1>
 <h2>
-Please enter details from your activity...
+Please select the file to upload your activities...
 </h2>
 <div>
-<form action="/logDay" method="post">
-    Date (MM/DD/YYYY): <input type="date" name="activity_date" required/>	
-	Calories Consumed (kcals): <input type="number" name="cals_consumed" required/>
-	Calories Burned (kcals): <input type="number" name="cals_burned" required/>
-	Hours of Sleep: <input type="number" name="sleep_hrs" required/>
-   	Activity Type:<h4>
-	<input type="radio" name="activity_type" required value="Walking">Walking<br>
-	<input type="radio" name="activity_type" value="Running">Running<br>
-	<input type="radio" name="activity_type" value="Bicycling">Bicycling<br>
-	<input type="radio" name="activity_type" value="Swimming">Swimming<br>
-	<input type="radio" name="activity_type" value="Elliptical">Elliptical<br>
-	<input type="radio" name="activity_type" value="Stair_Stepper">Stair Stepper<br>
-	<input type="radio" name="activity_type" value="Stationary_Bike">Stationary Bike<br>
-	<input type="radio" name="activity_type" value="Treadmill">Treadmill<br>
-	<input type="radio" name="activity_type" value="Rowing_Machine">Rowing Machine<br>
-	<input type="radio" name="activity_type" value="Other">Other<br>
-	</h4>
-    <input type="hidden" name="message" value="Your activity log has been submitted."/>	
-    <input type="submit" value="Log Your Day's Activity"/>
+<form action="/uploadMultiDay" method="post" enctype="multipart/form-data">
+    File: <input type="file" name="file" id="file" required/>	
+    <input type="hidden" name="message" value="Your activity upload has been submitted."/>	
+    <input type="submit" value="Upload Your Activities"/>
 </form>
 <form action="/home.jsp" method="post">
-    <input type="hidden" name="message" value="Your activity log was cancelled."/>	
+    <input type="hidden" name="message" value="Your activity upload was cancelled."/>	
     <input type="submit" value="Cancel"/>
 </form>
 </div>

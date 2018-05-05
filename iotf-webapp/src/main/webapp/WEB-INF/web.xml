@@ -1,24 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
-         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
-    <filter>
-      <filter-name>ObjectifyFilter</filter-name>
-      <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
-    </filter>
-    <filter-mapping>
-      <filter-name>ObjectifyFilter</filter-name>
-      <url-pattern>/*</url-pattern>
-    </filter-mapping>
-<!-- [END Objectify] -->
-    <welcome-file-list>
-        <welcome-file>home.jsp</welcome-file>
-    </welcome-file-list>
-<!-- [START config] -->
-    <context-param>
-        <param-name>upload.bucket</param-name>
-        <param-value>${upload.bucket}</param-value>
-    </context-param>    
-<!-- [END config] -->
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
+	<filter>
+		<filter-name>ObjectifyFilter</filter-name>
+		<filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>ObjectifyFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- [END Objectify] -->
+	<welcome-file-list>
+		<welcome-file>home.jsp</welcome-file>
+	</welcome-file-list>
+	<!-- [START config] -->
+	<context-param>
+		<param-name>app.deploy.project</param-name>
+		<param-value>${app.deploy.project}</param-value>
+	</context-param>
+	<context-param>
+		<param-name>upload.bucket</param-name>
+		<param-value>${upload.bucket}</param-value>
+	</context-param>
+	<context-param>
+		<param-name>pubsub.topic</param-name>
+		<param-value>${pubsub.topic}</param-value>
+	</context-param>
+	<!-- [END config] -->
 </web-app>

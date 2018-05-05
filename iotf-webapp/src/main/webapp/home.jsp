@@ -3,7 +3,7 @@
 <%@ page import="com.google.appengine.api.users.User" %>
 <%@ page import="com.google.appengine.api.users.UserService" %>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
-<%@ page import="gcp.jbjak.iotfitness.Profile" %>
+<%@ page import="gcp.jbjak.iotfitness.objects.Profile" %>
 <%@ page import="com.googlecode.objectify.Key" %>
 <%@ page import="com.googlecode.objectify.ObjectifyService" %>
 <%@ page import="java.util.List" %>
@@ -37,10 +37,10 @@ if (user != null) {
 %>
 <h2>
 Welcome! Please tell us a bit more about yourself...
-<br><%=msg%>
 </h2>
-<div>
 <h3>
+<p class="msg"><%=msg%></p>
+<div>
 <form action="/createProfile" method="post">
 	Email Address (from your login): <input type="text" name="email" value=<%=user.getEmail()%> readonly/>
 	First Name: <input type="text" name="fname" required/>
@@ -58,6 +58,7 @@ Welcome! Please tell us a bit more about yourself...
       <option value="garmin">Garmin</option>
       <option value="other" selected>Other</option>
     </select>
+    <input type="hidden" name="message" value="Your profile has been created."/>	
     <input type="submit" value="Create a Profile"/>
 </form>
 </h3>
@@ -69,16 +70,15 @@ Welcome! Please tell us a bit more about yourself...
 
 <h2>
 Thank you for coming back <%=profile.first_name%>!
-<br><%=msg%>
 </h2>
-<div>
 <h3>
+<p class="msg"><%=msg%></p>
+<div>
 What would you like to do today?
-</h3>
 <form action="/logDay.jsp" method="get">
     <input type="submit" value="Log Single Day's Activity"/>
 </form>
-<form action="/uploadMultiDayForm.jsp" method="get">
+<form action="/uploadMultiDay.jsp" method="get">
     <input type="submit" value="Upload Multiple Days"/>
 </form>
 <form action="https://datastudio.google.com/open/11UMD7VWP-IhbxkITlatH4y4tWww3Rprs" target="_blank" method="get">
@@ -102,6 +102,7 @@ What would you like to do today?
       <option value="garmin" <%=profile.isSelectedDevice("garmin")%>>Garmin Connect</option>
       <option value="other" <%=profile.isSelectedDevice("other")%>>Other</option>
     </select>
+    <input type="hidden" name="message" value="Your profile has been updated."/>	
     <input type="submit" value="Update Your Profile"/>
 </form>
 </div>

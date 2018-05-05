@@ -1,4 +1,4 @@
-package gcp.jbjak.iotfitness;
+package gcp.jbjak.iotfitness.objects;
 
 import java.util.Date;
 

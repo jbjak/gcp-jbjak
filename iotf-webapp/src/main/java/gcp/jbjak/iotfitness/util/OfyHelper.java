@@ -1,6 +1,8 @@
-package gcp.jbjak.iotfitness;
+package gcp.jbjak.iotfitness.util;
 
 import com.googlecode.objectify.ObjectifyService;
+
+import gcp.jbjak.iotfitness.objects.Profile;
 
 import javax.servlet.annotation.WebListener;
 import javax.servlet.ServletContext;
