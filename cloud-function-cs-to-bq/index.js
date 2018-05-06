@@ -14,9 +14,9 @@ const Storage = require('@google-cloud/storage');
 /**
  * TODO(developer): Uncomment the following lines before running the sample.
  */
-// const projectId = "your-project-id";
-// const datasetId = "my_dataset";
-// const tableId = "my_table";
+const projectId = "iot-fitness-202813";
+const datasetId = "gym_data";
+const tableId = "activities";
 
 /**
  * This sample loads the CSV file at
@@ -24,8 +24,8 @@ const Storage = require('@google-cloud/storage');
  *
  * TODO(developer): Replace the following lines with the path to your file.
  */
-const bucketName = 'cloud-samples-data';
-const filename = 'bigquery/us-states/us-states.csv';
+const bucketName = 'iot-fitness-uploads';
+const filename = event.data.name;
 
 // Instantiates clients
 const bigquery = new BigQuery({
@@ -43,8 +43,20 @@ const metadata = {
   skipLeadingRows: 1,
   schema: {
     fields: [
-      {name: 'name', type: 'STRING'},
-      {name: 'post_abbr', type: 'STRING'},
+      {name: 'Member_ID', type: 'FLOAT'},
+      {name: 'First_Name', type: 'STRING'},
+      {name: 'Last_Name', type: 'STRING'},
+      {name: 'Gender', type: 'STRING'},
+      {name: 'Age', type: 'INTEGER'},
+      {name: 'Height', type: 'INTEGER'},
+      {name: 'Weight', type: 'INTEGER'},
+      {name: 'Hours_Sleep', type: 'INTEGER'},
+      {name: 'Calories_Consumed', type: 'INTEGER'},
+      {name: 'Exercise_Calories_Burned', type: 'INTEGER'},
+      {name: 'Date', type: 'DATE'},
+      {name: 'Activity_Type', type: 'STRING'},
+      {name: 'Equipment_ID', type: 'INTEGER'},
+      {name: 'Activity_Code', type: 'INTEGER'},
     ],
   },
 };
