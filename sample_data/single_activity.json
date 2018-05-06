@@ -1,0 +1,16 @@
+{
+  "member_id" : 5634472569470976,
+  "first_name" : "Prof",
+  "last_name" : "Imagery",
+  "gender" : "M",
+  "age" : 24,
+  "height" : 75,
+  "weight" : 165,
+  "hours_sleep" : 3,
+  "calories_consumed" : 3333,
+  "exercise_calories_burned" : 333,
+  "date" : "2018-05-04",
+  "activity_type" : "Bicycling",
+  "activity_code" : 3,
+  "equipment_id" : 0
+}
