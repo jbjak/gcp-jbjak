@@ -65,11 +65,13 @@ public class LogDayServlet extends HttpServlet {
 					activity = new Activity(member_id, first_name, last_name, gender, age, height, weight, hours_sleep,
 							calories_consumed, exercise_calories_burned, activity_date, activity_type);
 
+					// Send as JSON
 					//mapper.enable(SerializationFeature.INDENT_OUTPUT);
-					//mapper.writeValue(System.out, activity);
-					//String msgToPublish = mapper.writeValueAsString(activity);
+					mapper.writeValue(System.out, activity);
+					String msgToPublish = mapper.writeValueAsString(activity);
 					
-					String msgToPublish = activity.toCSV();
+					// Send as CSV line
+					// String msgToPublish = activity.toCSV();
 
 					// SEND TO PUB/SUB
 					String topic_id = getServletContext().getInitParameter("pubsub.topic");
