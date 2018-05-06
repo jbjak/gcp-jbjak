@@ -71,7 +71,7 @@ bigquery
 
     // load() waits for the job to finish
     //assert.equal(job.status.state, 'DONE');
-    console.log(`Job ${job.id} completed.`);
+    console.log(`Job ${job.id} completed processing of file: ` + fileName);
 
     // Delete the file after processed
     var myBucket = storage.bucket(bucketName);
