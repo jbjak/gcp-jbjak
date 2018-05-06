@@ -70,7 +70,7 @@ bigquery
     const job = results[0];
 
     // load() waits for the job to finish
-    assert.equal(job.status.state, 'DONE');
+    //assert.equal(job.status.state, 'DONE');
     console.log(`Job ${job.id} completed.`);
 
     // Check the job's status for errors
