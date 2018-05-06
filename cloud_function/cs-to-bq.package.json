@@ -1,0 +1,8 @@
+{
+  "name": "cs-to-bq",
+  "version": "0.0.1",
+  "dependencies": {
+    "@google-cloud/bigquery": "1.2.0",
+    "@google-cloud/storage": "1.5.1"
+  }
+}
