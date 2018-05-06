@@ -66,6 +66,11 @@ Welcome! Please tell us a bit more about yourself...
 
 <%
         } else {
+        	
+        	String refreshMsg = "Data from Google Fit, Fitbit and Garmin Connect is refreshed automatically on Check-In"
+        			+ " here or at THE GYM.  Apple devices require Check-In on your mobile app."
+        			+ " All other activity data should be logged here as a single day activity submission or multi-day upload."
+        			+ " We are working hard to add support for more devices all the time so check back often!";
 %>
 
 <h2>
@@ -74,7 +79,10 @@ Thank you for coming back <%=profile.first_name%>!
 <h3>
 <p class="msg"><%=msg%></p>
 <div>
-What would you like to do today?
+What would you like to do today?&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<div class="tooltip">--- Note on automatic activity logging ---
+  <span class="tooltiptext"><%=refreshMsg%>t</span>
+</div>
 <form action="/logDay.jsp" method="get">
     <input type="submit" value="Log Single Day's Activity"/>
 </form>
@@ -109,7 +117,7 @@ What would you like to do today?
 <%
         }
 %>
-<h2>
+<h2 align="center">
 Don't forget to <a href="<%= userService.createLogoutURL(request.getRequestURI()) %>"><b>Check-Out</b></a> when you are done!
 </h2>
 <%

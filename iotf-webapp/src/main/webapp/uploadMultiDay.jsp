@@ -58,7 +58,7 @@ Please select the file to upload your activities...
 <%
         }
 %>
-<h2>
+<h2 align="center">
 Don't forget to <a href="<%= userService.createLogoutURL(request.getRequestURI()) %>"><b>Check-Out</b></a> when you are done!
 </h2>
 <%

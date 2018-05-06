@@ -1,5 +1,17 @@
 body {
+    background-color: #feffff;
+}
+
+img {
+	border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+div {
+    border-radius: 5px;
     background-color: #eaeaea;
+    padding:30px;
 }
 
 p.msg {
@@ -51,8 +63,40 @@ input[type=submit]:hover {
     background-color: #0096ff;
 }
 
-div {
+div.tooltip {
     border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
+    background-color: #eaeaea;
+    padding:5px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border: 1px dotted black;
+    font-style: italic;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200%;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    font-style: italic;
+    
+    /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }
