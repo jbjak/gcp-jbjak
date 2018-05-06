@@ -65,16 +65,18 @@ public class LogDayServlet extends HttpServlet {
 					activity = new Activity(member_id, first_name, last_name, gender, age, height, weight, hours_sleep,
 							calories_consumed, exercise_calories_burned, activity_date, activity_type);
 
-					mapper.enable(SerializationFeature.INDENT_OUTPUT);
+					//mapper.enable(SerializationFeature.INDENT_OUTPUT);
 					//mapper.writeValue(System.out, activity);
-					String msgToPublish = mapper.writeValueAsString(activity);
+					//String msgToPublish = mapper.writeValueAsString(activity);
+					
+					String msgToPublish = activity.toCSV();
 
 					// SEND TO PUB/SUB
 					String topic_id = getServletContext().getInitParameter("pubsub.topic");
 					PubSubHelper psHelper = new PubSubHelper();
 					psHelper.publish(topic_id, msgToPublish);
 
-					System.out.println("### Sending activity log entry to the queue: " + activity.toString());
+					System.out.println("### Sending activity log entry to the queue: " + msgToPublish);
 					System.out.flush();
 				}
 			}
