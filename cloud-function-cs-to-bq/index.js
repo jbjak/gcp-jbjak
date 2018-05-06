@@ -25,7 +25,7 @@ const tableId = "activities";
  * TODO(developer): Replace the following lines with the path to your file.
  */
 const bucketName = 'iot-fitness-uploads';
-const filename = event.data.name;
+const fileName = event.data.name;
 
 // Instantiates clients
 const bigquery = new BigQuery({
@@ -65,13 +65,18 @@ const metadata = {
 bigquery
   .dataset(datasetId)
   .table(tableId)
-  .load(storage.bucket(bucketName).file(filename), metadata)
+  .load(storage.bucket(bucketName).file(fileName), metadata)
   .then(results => {
     const job = results[0];
 
     // load() waits for the job to finish
     //assert.equal(job.status.state, 'DONE');
     console.log(`Job ${job.id} completed.`);
+
+    // Delete the file after processed
+    var myBucket = storage.bucket(bucketName);
+    var file = myBucket.file(fileName);
+    file.delete();
 
     // Check the job's status for errors
     const errors = job.status.errors;
