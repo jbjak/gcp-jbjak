@@ -22,7 +22,6 @@ public class CreateProfileServlet extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-		String msg = new String("");
 		Profile profile;
 
 		try {
@@ -61,7 +60,6 @@ public class CreateProfileServlet extends HttpServlet {
 				// present.
 				ObjectifyService.ofy().save().entity(profile).now();
 				
-				msg = "Your profile has been updated.";
 				System.out.println("### Saved profile to datastore: " + profile.toString());
 			}
 
