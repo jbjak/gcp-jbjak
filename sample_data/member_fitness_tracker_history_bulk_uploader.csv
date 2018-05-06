@@ -1,11 +1,11 @@
 ﻿Member_ID,First_Name,Last_Name,Gender,Age,Height,Weight,Hours_Sleep,Calories_Consumed,Exercise_Calories_Burned,Date,Activity_Type,Equipment_ID,Activity Code
-1234567890,Bulk,Uploader,M,35,"5,8",205,7,3758,267,9/28/17,Running,0,2
-1234567890,Bulk,Uploader,M,67,"5,6",203,7,2756,602,9/7/17,Stationary_Bike,71,7
-1234567890,Bulk,Uploader,M,67,"5,6",203,9,2396,649,9/24/17,Swimming,0,4
-1234567890,Bulk,Uploader,M,67,"5,6",203,5,2325,423,10/6/17,Elliptical,57,5
-1234567890,Bulk,Uploader,M,67,"5,6",204,6,2239,705,10/18/17,Elliptical,52,5
-1234567890,Bulk,Uploader,M,67,"5,6",208,9,3026,387,9/10/17,Swimming,0,4
-1234567890,Bulk,Uploader,M,67,"5,6",203,7,2029,515,9/29/17,Treadmill,84,8
-1234567890,Bulk,Uploader,M,67,"5,6",205,8,3057,338,9/17/17,Bicycling,0,3
-1234567890,Bulk,Uploader,M,67,"5,6",205,5,2430,317,9/29/17,Elliptical,51,5
-1234567890,Bulk,Uploader,M,67,"5,6",205,6,2740,861,9/23/17,Stationary_Bike,77,7
+1234567890,Bulk,Uploader,M,35,66,205,7,3758,267,2017-09-28,Running,0,2
+1234567890,Bulk,Uploader,M,67,66,203,7,2756,602,2017-09-07,Stationary_Bike,71,7
+1234567890,Bulk,Uploader,M,67,66,203,9,2396,649,2017-09-24,Swimming,0,4
+1234567890,Bulk,Uploader,M,67,66,203,5,2325,423,2017-10-06,Elliptical,57,5
+1234567890,Bulk,Uploader,M,67,66,204,6,2239,705,2017-10-18,Elliptical,52,5
+1234567890,Bulk,Uploader,M,67,66,208,9,3026,387,2017-09-10,Swimming,0,4
+1234567890,Bulk,Uploader,M,67,66,203,7,2029,515,2017-09-29,Treadmill,84,8
+1234567890,Bulk,Uploader,M,67,66,205,8,3057,338,2017-09-17,Bicycling,0,3
+1234567890,Bulk,Uploader,M,67,66,205,5,2430,317,2017-09-29,Elliptical,51,5
+1234567890,Bulk,Uploader,M,67,66,205,6,2740,861,2017-09-23,Stationary_Bike,77,7
